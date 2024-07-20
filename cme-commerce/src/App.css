@@ -1,0 +1,57 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+body{
+  background-image: url("https://t3.ftcdn.net/jpg/02/12/77/26/360_F_212772676_b3vyJkRI8nkNSmMsAc6A32NW7rtOBVPc.jpg");
+  background-size: cover;
+  padding-top: 7rem;
+}
+
+/* Ratings */
+
+.rating-outer {
+  display: inline-block;
+  position: relative;
+  font-family: FontAwesome;
+  color: #fdcc0d;
+}
+
+.rating-outer::before {
+  content: '\f006 \f006 \f006 \f006 \f006';
+}
+
+.rating-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
+}
+
+.rating-inner::before {
+  content: '\f005 \f005 \f005 \f005 \f005';
+  color: #f8ce0b;
+}
+
+.navbar{
+  background-color: #050921;
+  margin: 20px;
+}
+.d-flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.search{
+  display:inline-flex;
+}
+
+.search button{
+  background-color: orange;
+}
