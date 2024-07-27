@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import DeleteIcon from '@mui/icons-material/Delete';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
@@ -8,6 +8,18 @@ import CurrencyRupeeIcon from '@mui/icons-material/CurrencyRupee';
 
 
 function Cart({ cartItems, setCartItems }) {
+
+    let subTotal=cartItems.reduce((acc, curval) => (acc + curval.qty), 0);
+    let EstimatedPrice=cartItems.reduce((acc, curval) => (acc + curval.product.price * curval.qty), 0);
+    const navigate=useNavigate();
+    const processPayment=()=>{
+        const data={
+            subTotal,
+            EstimatedPrice
+        }
+        sessionStorage.setItem("orderInfo",JSON.stringify(data))
+        navigate("/payment")
+    }
 
     const [orderPlaced, setOrderPlaced] = useState(false);
     const increaseQTY = (item) => {
@@ -111,11 +123,11 @@ function Cart({ cartItems, setCartItems }) {
                             <div id="order_summary">
                                 <h4>Order Summary</h4>
                                 <hr />
-                                <p>Subtotal:  <span className="order-summary-values">{cartItems.reduce((acc, curval) => (acc + curval.qty), 0)} (Units)</span></p>
-                                <p>Est. total: <span className="order-summary-values"><CurrencyRupeeIcon/>{cartItems.reduce((acc, curval) => (acc + curval.product.price * curval.qty), 0)}</span></p>
+                                <p>Subtotal:  <span className="order-summary-values">{subTotal} (Units)</span></p>
+                                <p>Est. total: <span className="order-summary-values"><CurrencyRupeeIcon/>{EstimatedPrice}</span></p>
 
                                 <hr />
-                                <button id="checkout_btn" className="btn btn-warning btn-block" onClick={handleOrders}>Place Order</button>
+                                <button id="checkout_btn" className="btn btn-warning btn-block" onClick={processPayment}>Proceed to checkout</button>
                             </div>
                         </div>
                     </div>

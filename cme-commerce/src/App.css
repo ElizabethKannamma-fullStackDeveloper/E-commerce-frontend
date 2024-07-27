@@ -55,3 +55,37 @@ body{
 .search button{
   background-color: orange;
 }
+
+.row-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  margin: 50px;
+  color: white;
+
+}
+
+.shadow-lg{
+  display: flex;
+  flex-direction: column;
+  background-color: orange;
+  padding: 20px;
+  margin: 20px;
+  width:80%;
+}
+
+#pay_btn{
+  width: 50%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
