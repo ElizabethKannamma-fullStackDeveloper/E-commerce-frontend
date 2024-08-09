@@ -29,7 +29,7 @@ function SuccessPay({cartItems,setCartItems}) {
  <> <h2 className='mt-5 text-center'style={{color:"white"}}>Your Cart is Empty</h2>
         <h2 className='mt-5 text-center'style={{color:"white"}}>Your Order has been Placed successfully</h2>
         <h1 style={{color:"green"}} className='mt-5 text-center'><TaskAltIcon fontSize='large'/></h1>
-        <Link to="/home"><button style={{marginLeft:"59rem",marginTop:"20px"}}className='btn btn-warning '>Place Another order</button></Link>
+        <Link style={{textDecoration:"none"}} to="/home"><button className='btn btn-warning d-block mx-auto mt-4'>Place Another order</button></Link>
     </>
   )
 }
