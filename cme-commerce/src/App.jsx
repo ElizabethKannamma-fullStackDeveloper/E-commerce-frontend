@@ -23,7 +23,7 @@ function App() {
 
   useEffect(()=>{
     async function getStripeApiKey(){
-      const {data}=await axios.get("http://localhost:3000/payment/stripeApi")
+      const {data}=await axios.get("https://e-commerce-backend-1-zfsu.onrender.com/payment/stripeApi")
       setStripeApiKey(data.stripeApiKey)
     }
     getStripeApiKey()

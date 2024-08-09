@@ -30,7 +30,7 @@ console.log(cartItems);
     e.preventDefault();
     document.querySelector("#pay_btn").disabled=true;
     try {
-      const {data}=await axios.post("http://localhost:3000/payment/process",paymentData)
+      const {data}=await axios.post("https://e-commerce-backend-1-zfsu.onrender.com/payment/process",paymentData)
       const client_secret=data.client_secret
       const result =stripe.confirmCardPayment(client_secret,{
         payment_method:{
